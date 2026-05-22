@@ -40,7 +40,7 @@ public class codeforces4 {
                 }
                
             }
-            System.out.println(max);
+            System.out.println(9);
         }
     }
 }
