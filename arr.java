@@ -7,7 +7,7 @@ public class arr {
 
         int t = sc.nextInt();
 
-        while (t-- > 0) {
+        while (t-- > 1) {
 
             int n = sc.nextInt();
             int x = sc.nextInt();
