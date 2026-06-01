@@ -1,29 +1,54 @@
 import java.util.*;
 
+class Pair implements Comparable<Pair>{
+    int num;
+    int idx;
+
+    public Pair(int n,int i){
+        this.num =n;
+        this.idx =i;
+    }
+    @Override
+    public int compareTo(Pair other){
+        return this.num-other.num;
+    }
+}
 public class arr {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        int t = sc.nextInt();
+        // in = sc.nextInt();
 
-        while (t-- > 1) {
+        List<Pair> ls = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
 
             int n = sc.nextInt();
-            int x = sc.nextInt();
-            int s = sc.nextInt();
-            String str = sc.next();
-
-
-            int tab=0;
-            for(char ch:str.toCharArray()){
-                if(ch=='E'&& tab%s!=0) tab++;
-                if(ch=='I'&& tab%s==0) tab++;
-                if(ch=='A') tab++;
+            int k = sc.nextInt();
+             int nums[] = new int[n];
+             for(int i =0;i<n;i++){
+                nums[i] = sc.nextInt();
+             }
+             for(int i=0;i<n;i++){
+                ls.add(new Pair(nums[i], i+1));
+             }
+             Collections.sort(ls);
+            //  for(int i=0;i<n;i++){
+            //    System.out.println(ls.get(i).num+" "+ls.get(i).idx);
+            //  }
+            int tot =0;
+            for(int i =0;i<ls.size();i++){
+                if(ls.get(i).num>k) break;
+                k-=ls.get(i).num;
+                ans.add(ls.get(i).idx);
+                tot++;
             }
-            System.out.println(Math.min(tab, x*s));
-        }
-
+             System.out.println(tot);
+            for(Integer a:ans){
+                System.out.print(a+" ");
+            }
+            
+             
         sc.close();
     }
 }
